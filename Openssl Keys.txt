@@ -1,0 +1,21 @@
+### RSA private key ###
+
+openssl genrsa -out private.key 2048
+
+### RSA public key without format ###
+
+openssl rsa -pubout -in private.key -out public.key
+
+### RSA public key with format ###
+
+openssl rsa -pubout -in private.key -out public.der -inform PEM -outform DER
+
+### RSA Private Key PEM format to PKCS8 Private Key DER format###
+
+openssl pkcs8 -topk8 -inform PEM -in private.key -outform DER -out private.der -nocrypt
+
+### X509 Certificate ###
+
+openssl req -new -x509 -keyform PEM -key private.key -outform DER -out public.cer
+
+'C:\etc\cas\config\public.key'

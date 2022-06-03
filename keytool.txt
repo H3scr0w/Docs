@@ -1,0 +1,5 @@
+keytool -import -trustcacerts -alias "axway-rec" -file "/c/certificat/atlas.rec.sgdbf.saint-gobain.net.cer" -keystore "/c/java/jdk/lib/security/cacerts" -storepass changeit
+keytool -import -trustcacerts -alias "axway-rec" -file "/c/certificat/atlas.rec.sgdbf.saint-gobain.net.cer" -keystore "/c/certificat/atlas-truststore.jks" -storepass changeit
+keytool -v -list -keystore /c/certificat/atlas-truststore.jks -storepass changeit | grep axway-rec
+
+openssl x509 -in "/c/certificat/atlas.rec.sgdbf.saint-gobain.net.cer" -pubkey -out  "/c/certificat/pbkey-rec.txt"
